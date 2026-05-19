@@ -1,6 +1,8 @@
 # Raid Buff Counter
 
-A lightweight World of Warcraft **Classic** addon that counts raid utility casts per player while you are in a raid.
+A lightweight World of Warcraft **Classic** addon that counts raid utility casts per player while you are in a raid. 
+
+The idea is to track some of the buffing spells that aren't tracked outside combat by WCL. 
 
 ## Features
 
@@ -35,10 +37,6 @@ A lightweight World of Warcraft **Classic** addon that counts raid utility casts
 
 3. `/reload`
 
-### Upgrading from MageBuffTracker
-
-Remove the old `MageBuffTracker` folder. Saved data migrates automatically from `MageBuffTrackerDB` to `RaidBuffCounterDB`.
-
 ## Commands
 
 | Command | Description |
@@ -66,7 +64,7 @@ Remove the old `MageBuffTracker` folder. Saved data migrates automatically from 
 
 ## Authors
 
-Mobsonme / Cessiah / efnetdoom2 / CursorAI
+Mobsonme / Cessiah / Telligentsia / Discord: efnetdoom2 / CursorAI
 
 ## License
 
