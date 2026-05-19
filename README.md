@@ -4,6 +4,8 @@ A lightweight World of Warcraft **Classic** addon that counts raid utility casts
 
 The idea is to track some of the buffing spells that aren't tracked outside combat by WCL. 
 
+<img src="mainui.jpg" alt="Raid Buff Counter UI">
+
 ## Features
 
 - Tracks casts from **your raid only** (combat log affiliation flags + `IsInRaid()`)
