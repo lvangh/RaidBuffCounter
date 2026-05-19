@@ -5,7 +5,7 @@ A lightweight World of Warcraft **Classic** addon that counts raid utility casts
 ## Features
 
 - Tracks casts from **your raid only** (combat log affiliation flags + `IsInRaid()`)
-- Class dropdown: **Mage**, **Warlock**, **Druid**, **Priest**, **Warrior**
+- Class dropdown: **Mage**, **Warlock**, **Druid**, **Priest**, **Paladin**, **Warrior**
 - Per-caster counts with realm stripped from names (`Player-Realm` → `Player`)
 - Draggable window with minimize button
 - Auto-minimizes out of raid; expands when you join a raid
@@ -18,9 +18,10 @@ A lightweight World of Warcraft **Classic** addon that counts raid utility casts
 |---------|---------|--------|
 | Mage    | AI, AB  | Arcane Intellect, Arcane Brilliance |
 | Warlock | HS, SS  | Create Healthstone (all ranks), Create Soulstone (all ranks) |
-| Druid   | MotW, GotW | Mark of the Wild, Gift of the Wild |
-| Priest  | PoF, PW:F | Prayer of Fortitude, Power Word: Fortitude |
-| Warrior | SA      | Sunder Armor |
+| Druid   | MotW, GotW, Reb | Mark of the Wild, Gift of the Wild, Rebirth |
+| Priest  | PoF, PW:F, Res, SP, PoSP | Prayer of Fortitude, Power Word: Fortitude, Resurrection, Shadow Protection, Prayer of Shadow Protection |
+| Paladin | Red       | Redemption (all ranks) |
+| Warrior | SA        | Sunder Armor |
 
 ## Installation
 
@@ -47,10 +48,11 @@ Remove the old `MageBuffTracker` folder. Saved data migrates automatically from 
 | `/rbc toggle` | Show or hide the window |
 | `/rbc options` | Open options |
 | `/rbc mini` | Minimize or expand |
-| `/rbc mage` | Switch to Mage view |
-| `/rbc warlock` | Switch to Warlock view |
 | `/rbc druid` | Switch to Druid view |
+| `/rbc mage` | Switch to Mage view |
+| `/rbc paladin` | Switch to Paladin view |
 | `/rbc priest` | Switch to Priest view |
+| `/rbc warlock` | Switch to Warlock view |
 | `/rbc warrior` | Switch to Warrior view |
 | `/rbc persist on\|off` | Keep counts after logout (default: off) |
 

@@ -1,6 +1,6 @@
 local RBC = RaidBuffCounter
 
-local MAX_COLUMNS = 2
+local MAX_COLUMNS = 5
 local ROW_HEIGHT = 16
 local HEADER_HEIGHT = 18
 local TITLE_HEIGHT = 20

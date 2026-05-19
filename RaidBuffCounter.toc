@@ -2,7 +2,7 @@
 ## Title: Raid Buff Counter
 ## Notes: Tracks raid buff casts per caster while in a raid.
 ## Author: Mobsonme / Cessiah / efnetdoom2 / CursorAI
-## Version: 1.2.3
+## Version: 1.2.6
 ## SavedVariables: RaidBuffCounterDB
 
 Data.lua

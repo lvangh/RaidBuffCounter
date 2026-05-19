@@ -6,7 +6,7 @@ MageBuffTracker = RaidBuffCounter
 
 RBC.WINDOW_TITLE = "Raid Buff Counter"
 
-RBC.CLASS_ORDER = { "mage", "warlock", "druid", "priest", "warrior" }
+RBC.CLASS_ORDER = { "druid", "mage", "paladin", "priest", "warlock", "warrior" }
 
 RBC.CLASSES = {
   mage = {
@@ -40,6 +40,7 @@ RBC.CLASSES = {
     columns = {
       { key = "motw", label = "MotW", prefix = "Mark of the Wild" },
       { key = "gotw", label = "GotW", prefix = "Gift of the Wild" },
+      { key = "reb", label = "Reb", prefix = "Rebirth" },
     },
   },
   priest = {
@@ -47,6 +48,15 @@ RBC.CLASSES = {
     columns = {
       { key = "pof", label = "PoF", prefix = "Prayer of Fortitude" },
       { key = "pwf", label = "PW:F", prefix = "Power Word: Fortitude" },
+      { key = "res", label = "Res", prefix = "Resurrection" },
+      { key = "sp", label = "SP", prefix = "Shadow Protection" },
+      { key = "posp", label = "PoSP", prefix = "Prayer of Shadow Protection" },
+    },
+  },
+  paladin = {
+    label = "Paladin",
+    columns = {
+      { key = "red", label = "Red", prefix = "Redemption" },
     },
   },
   warrior = {

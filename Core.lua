@@ -266,7 +266,7 @@ local function SlashHandler(msg)
   print("  /rbc toggle - show or hide the window")
   print("  /rbc options - show options panel")
   print("  /rbc mini - minimize or expand the window")
-  print("  /rbc mage|warlock|druid|priest|warrior - switch class view")
+  print("  /rbc druid|mage|paladin|priest|warlock|warrior - switch class view")
   print("  /rbc persist on|off - keep counts after logout (default off)")
 end
 
