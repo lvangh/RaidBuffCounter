@@ -49,7 +49,19 @@ RBC.CLASSES = {
       { key = "pof", label = "PoF", prefix = "Prayer of Fortitude" },
       { key = "pwf", label = "PW:F", prefix = "Power Word: Fortitude" },
       { key = "res", label = "Res", prefix = "Resurrection" },
-      { key = "sp", label = "SP", prefix = "Shadow Protection" },
+      {
+        key = "sp",
+        label = "SP",
+        match = function(spellName)
+          if not spellName or spellName:find("Potion", 1, true) or spellName:find("Elixir", 1, true) then
+            return false
+          end
+          if spellName:find("^Prayer of ", 1) == 1 then
+            return false
+          end
+          return spellName == "Shadow Protection" or spellName:find("^Shadow Protection %(", 1) == 1
+        end,
+      },
       { key = "posp", label = "PoSP", prefix = "Prayer of Shadow Protection" },
     },
   },
