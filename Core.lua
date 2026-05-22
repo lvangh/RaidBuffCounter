@@ -68,7 +68,7 @@ local function EnsureDB()
     db.resetOnLogout = not db.persistAcrossLogouts
   end
   if db.resetOnLogin == nil then
-    db.resetOnLogin = true
+    db.resetOnLogin = false
   end
   if db.frame == nil then
     db.frame = {}
@@ -169,7 +169,27 @@ function RBC.UpdateRaidWindowState()
   if not RBC.frame or not RBC.frame:IsShown() or not RBC.SetMinimized then
     return
   end
-  RBC:SetMinimized(not IsInRaid())
+
+  local inRaid = IsInRaid()
+
+  -- First run after load: sync state without forcing expand (respect saved minimize).
+  if RBC.wasInRaid == nil then
+    RBC.wasInRaid = inRaid
+    if not inRaid then
+      RBC:SetMinimized(true)
+    end
+    return
+  end
+
+  if not inRaid then
+    RBC:SetMinimized(true)
+  elseif not RBC.wasInRaid then
+    -- Just joined a raid — expand once.
+    RBC:SetMinimized(false)
+  end
+  -- Already in raid: leave minimize state alone (roster changes won't expand).
+
+  RBC.wasInRaid = inRaid
 end
 
 local function GetOrCreateEntry(classKey, shortName)
