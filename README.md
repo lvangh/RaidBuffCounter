@@ -2,6 +2,8 @@
 
 A lightweight World of Warcraft **Classic** addon that counts raid utility casts per player while you are in a raid.
 
+![Raid Buff Counter UI](mainui.jpg)
+
 ## Features
 
 - Tracks casts from **your raid only** (combat log affiliation flags + `IsInRaid()`)
@@ -62,7 +64,7 @@ Remove the old `MageBuffTracker` folder. Saved data migrates automatically from 
 
 - Only events in **combat log range** are counted.
 - Tracking runs only while you are **in a raid** and the caster is flagged as **raid** or **mine** in the combat log.
-- The **Reset** button clears counts for all classes.
+- The **Reset** button opens a menu: reset the current class or all classes.
 
 ## Authors
 
