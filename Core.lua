@@ -123,12 +123,25 @@ function RBC.GetCounts(classKey)
   return db.counts[classKey]
 end
 
-function RBC.ResetCounts()
+function RBC.ResetCounts(classKey)
+  local db = EnsureDB()
+  if classKey then
+    if type(db.counts[classKey]) == "table" then
+      wipe(db.counts[classKey])
+    end
+    local label = RBC.CLASSES[classKey] and RBC.CLASSES[classKey].label or classKey
+    if RBC.RefreshUI then
+      RBC:RefreshUI()
+    end
+    print("|cff3fc7eb" .. ADDON_TITLE .. ":|r " .. label .. " counts reset.")
+    return
+  end
+
   ClearCounts()
   if RBC.RefreshUI then
     RBC:RefreshUI()
   end
-  print("|cff3fc7eb" .. ADDON_TITLE .. ":|r counts reset.")
+  print("|cff3fc7eb" .. ADDON_TITLE .. ":|r all class counts reset.")
 end
 
 function RBC.GetResetOnLogout()
@@ -236,8 +249,14 @@ end
 local function SlashHandler(msg)
   msg = strtrim(msg or ""):lower()
 
-  if msg == "reset" then
+  if msg == "reset" or msg == "reset all" then
     RBC.ResetCounts()
+    return
+  end
+
+  local resetClass = msg:match("^reset (%a+)$")
+  if resetClass and RBC.CLASSES[resetClass] then
+    RBC.ResetCounts(resetClass)
     return
   end
 
@@ -283,6 +302,8 @@ local function SlashHandler(msg)
   print("|cff3fc7eb" .. ADDON_TITLE .. " commands:|r")
   print("  /rbc - show this help")
   print("  /rbc reset - clear all counts")
+  print("  /rbc reset all - clear all counts")
+  print("  /rbc reset <class> - clear one class (e.g. reset priest)")
   print("  /rbc toggle - show or hide the window")
   print("  /rbc options - show options panel")
   print("  /rbc mini - minimize or expand the window")

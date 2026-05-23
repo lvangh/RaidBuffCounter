@@ -1,10 +1,6 @@
 # Raid Buff Counter
 
-A lightweight World of Warcraft **Classic** addon that counts raid utility casts per player while you are in a raid. 
-
-The idea is to track some of the buffing spells that aren't tracked outside combat by WCL. 
-
-<img src="mainui.jpg" alt="Raid Buff Counter UI">
+A lightweight World of Warcraft **Classic** addon that counts raid utility casts per player while you are in a raid.
 
 ## Features
 
@@ -13,8 +9,7 @@ The idea is to track some of the buffing spells that aren't tracked outside comb
 - Per-caster counts with realm stripped from names (`Player-Realm` → `Player`)
 - Draggable window with minimize button
 - Auto-minimizes out of raid; expands when you join a raid
-- Options: reset on login / logout
-- Counts persist across `/reload`; optional clear on login/logout
+- Options: reset on login / logout (login reset off by default — counts survive `/reload`)
 
 ## Tracked spells
 
@@ -39,12 +34,17 @@ The idea is to track some of the buffing spells that aren't tracked outside comb
 
 3. `/reload`
 
+### Upgrading from MageBuffTracker
+
+Remove the old `MageBuffTracker` folder. Saved data migrates automatically from `MageBuffTrackerDB` to `RaidBuffCounterDB`.
+
 ## Commands
 
 | Command | Description |
 |---------|-------------|
 | `/rbc` | Help |
-| `/rbc reset` | Clear all counts |
+| `/rbc reset` or `reset all` | Clear all counts |
+| `/rbc reset <class>` | Clear one class (e.g. `reset priest`) |
 | `/rbc toggle` | Show or hide the window |
 | `/rbc options` | Open options |
 | `/rbc mini` | Minimize or expand |
@@ -66,7 +66,7 @@ The idea is to track some of the buffing spells that aren't tracked outside comb
 
 ## Authors
 
-Mobsonme / Cessiah / Telligentsia / Discord: efnetdoom2 / CursorAI
+Mobsonme / Cessiah / efnetdoom2 / CursorAI
 
 ## License
 

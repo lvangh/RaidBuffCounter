@@ -92,6 +92,27 @@ function RBC:ToggleMinimized()
   self:SetMinimized(not self:IsMinimized())
 end
 
+function RBC.ResetDropdownInit()
+  local info = UIDropDownMenu_CreateInfo()
+  local classKey = RBC.GetSelectedClass()
+  local classDef = RBC.GetClassDef(classKey)
+
+  info.text = "Reset " .. classDef.label
+  info.notCheckable = true
+  info.func = function()
+    RBC.ResetCounts(classKey)
+  end
+  UIDropDownMenu_AddButton(info)
+
+  info = UIDropDownMenu_CreateInfo()
+  info.text = "Reset all classes"
+  info.notCheckable = true
+  info.func = function()
+    RBC.ResetCounts()
+  end
+  UIDropDownMenu_AddButton(info)
+end
+
 function RBC:UpdateClassDropdown()
   if not self.classDropdown then
     return
@@ -481,12 +502,16 @@ local function CreateMainFrame()
     RBC:ToggleOptionsPanel()
   end)
 
+  local resetDropdown = CreateFrame("Frame", "RaidBuffCounterResetDropdown", frame, "UIDropDownMenuTemplate")
+  resetDropdown:SetPoint("TOPRIGHT", footer, "BOTTOMRIGHT", -FRAME_SIDE_PADDING, 0)
+
   local resetBtn = CreateFrame("Button", nil, footer, "UIPanelButtonTemplate")
   StyleSmallButton(resetBtn, "Reset")
   resetBtn:SetPoint("RIGHT", footer, "RIGHT", 0, 0)
   resetBtn:SetScript("OnClick", function()
-    RBC.ResetCounts()
+    ToggleDropDownMenu(1, nil, resetDropdown, resetBtn, 0, 0)
   end)
+  UIDropDownMenu_Initialize(resetDropdown, RBC.ResetDropdownInit, "MENU")
 
   RestoreFramePosition(frame)
 
@@ -497,7 +522,7 @@ local function CreateMainFrame()
     frame:Show()
   end
 
-  return frame, rows, list, header, footer, minimizeBtn, title, classBar, classDropdown, headerName, headerCols
+  return frame, rows, list, header, footer, minimizeBtn, title, classBar, classDropdown, headerName, headerCols, resetDropdown
 end
 
 local init = CreateFrame("Frame")
